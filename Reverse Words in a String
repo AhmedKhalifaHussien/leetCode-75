@@ -1,0 +1,49 @@
+class Solution {
+public:
+#define endl '\n'
+#define f(n) for (int i = 0; i <n; i++)
+#define all(v) v.begin(),v.end()
+#define sz(x) x.size()
+
+    string reverseWords(string x) {
+        string ans = "";
+        vector<string>v;
+        for (int i = 0; i < sz(x); i++) {
+            if (x[i] == ' ')
+            {
+                v.push_back(ans);
+                ans = "";
+            }
+            else ans += x[i];
+        }
+        if (sz(ans))
+            v.push_back(ans);
+        reverse(all(v));
+        string out="";
+        f(sz(v)) 
+        {
+            bool z = 0;
+            for(int j=0;j<sz(v[i]);j++)
+                if ((v[i][j])!=' ')
+                {
+                    z = 1; 
+                    break;
+                }
+            if (z)
+            {
+                if (i == sz(v)-1)
+                    out+=v[i];
+                else 
+                {
+                    out+=v[i];
+                    out+=' ';
+                }
+            }
+    
+        }
+        if(out[sz(out)-1]==' ')
+            out.pop_back();
+        return out;
+
+    }
+};
