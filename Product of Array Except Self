@@ -1,0 +1,43 @@
+class Solution {
+public:
+#define endl '\n'
+#define sz(x) x.size()
+
+    vector<int> productExceptSelf(vector<int>& v) {
+    int n=sz(v);
+    long long m = 1;
+    bool z = 0;
+    int cnt=0;
+    for (int i = 0; i < n; i++)
+    {
+        if (v[i] == 0)
+        {
+            z = 1;
+            cnt++;
+            continue;
+        }
+        m *= v[i];
+    }
+    vector<int>vv(n);
+    if (z)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            if (v[i] == 0)
+                vv[i] = m;
+            else vv[i] =0;
+        }
+    }
+    else {
+        for (int i = 0; i < n; i++)
+        {
+            
+            vv[i] = m / v[i];
+        }
+    }
+    vector<int>vvv(n,0);
+    if(cnt>1)
+        return vvv;
+    return vv;
+    }
+};
