@@ -27,7 +27,6 @@ public:
                     n--;
                     flowerbed[i]=1;
                 }
-
             }
         }
         if(n)
